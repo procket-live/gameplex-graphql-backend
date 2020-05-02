@@ -1,0 +1,44 @@
+type User {
+  id: String!
+  username: String!
+  password: String!
+  mobile: String
+  email: String!
+  is_mobile_verified: Boolean!
+  is_email_verified: Boolean!
+  gender: String!
+  dob: String!
+  points: Int!
+  firebase_token: String
+  account_source: String!
+  profile_image: String
+  wallet_cash_balance: Int!
+  wallet_bonous_balance: Int!
+  wallet_win_balance: Int!
+  bank_account: BankAccount
+  created_at: String!
+  updated_at: String!
+  deleted_at: String
+}
+
+input BankAccountInput {
+  user_name: String!
+  account_number: String!
+  ifsc: String!
+}
+
+type BankAccount {
+  user_name: String!
+  account_number: String!
+  ifsc: String!
+}
+
+type Query {
+  hello: String!
+  users: [User!]
+  me: User
+}
+
+type Mutation {
+  updateBankDetails(input: BankAccountInput): User
+}

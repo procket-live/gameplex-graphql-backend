@@ -1,0 +1,4 @@
+type Otp {
+  id: String
+  target: String
+}

@@ -1,0 +1,45 @@
+type Game {
+  id: ID!
+  active: Boolean!
+  name: String!
+  description: String
+  thumbnail: String
+  wallpaper: String
+  package_id: String
+  playstore_link: String
+  game_target: String
+  game_meta: [GameMeta!]
+}
+
+type GameMeta {
+  key: String!
+  lookup_type: LookupType
+}
+
+input GameId {
+  id: ID!
+}
+
+input GameInput {
+  name: String!
+  description: String
+  thumbnail: String
+  wallpaper: String
+  package_id: String
+  playstore_link: String
+  game_target: String
+}
+
+input GameMetaInput {
+  key: String!
+  lookup_type_id: String!
+}
+
+type Mutation {
+  createGame(input: GameInput): Game
+  addGameMeta(input: GameMetaInput!, id: String!): GameMeta
+}
+
+type Query {
+  game(input: GameId): Game
+}

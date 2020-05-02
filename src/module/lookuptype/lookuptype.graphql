@@ -1,0 +1,32 @@
+type LookupType {
+  id: ID!
+  name: String!
+  description: String
+  values: [LookupValue]
+}
+
+type LookupValue {
+  name: String!
+  description: String
+  value: String
+}
+
+input LookupTypeInput {
+  name: String!
+  description: String
+}
+
+input LookupValueInput {
+  name: String!
+  description: String
+  value: String!
+}
+
+type Query {
+  getLookup(id: ID!): LookupType
+}
+
+type Mutation {
+  createLookupType(input: LookupTypeInput!): LookupType
+  addLookupValue(input: LookupValueInput!, id: ID!): LookupValue
+}

@@ -1,0 +1,23 @@
+input GenerateOtpInput {
+  mobile: String!
+}
+
+input VerifyOtpInput {
+  mobile: String!
+  otp: String!
+}
+
+input IdInput {
+  id: String!
+}
+
+type UserWithToken {
+  token: String
+  user: User
+}
+
+type Mutation {
+  generateOtp(input: GenerateOtpInput!): Otp!
+  verifyOtp(input: VerifyOtpInput): UserWithToken
+  resendOtp(input: IdInput): Otp
+}
