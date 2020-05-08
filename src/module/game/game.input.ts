@@ -12,3 +12,11 @@ export class GameMetaInput {
     key: string;
     lookup_type_id: string
 }
+
+export class GameInstructionInput {
+    name: string;
+    message: string;
+    note: string;
+    image: string;
+    category: string;
+}

@@ -10,19 +10,19 @@ export abstract class BaseEntity {
     @Column({ type: 'boolean', default: false })
     is_archived: boolean;
 
-    @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', nullable: true })
     create_at: Date;
 
     @Column({ type: 'varchar', length: 300, nullable: true })
     created_by: string;
 
-    @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
+    @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', nullable: true })
     updated_at: Date;
 
     @Column({ type: 'varchar', length: 300, nullable: true })
     updated_by: string;
 
-    @Column({ type: 'timestamptz', default: null, nullable: true })
+    @Column({ type: 'timestamp', default: null, nullable: true })
     deleted_at: Date;
 
     @Column({ type: 'varchar', length: 300, nullable: true })

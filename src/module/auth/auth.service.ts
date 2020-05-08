@@ -24,8 +24,6 @@ export class AuthService {
         return sign(payload, "secrectKey", { expiresIn: '30d' })
     }
 
-
-
     async validateUser(id: string): Promise<User> {
         const user = await this.userService.findById(id);
         if (!user) {

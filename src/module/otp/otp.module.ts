@@ -6,6 +6,9 @@ import { Otp } from './otp.entity';
 
 @Module({
     imports: [TypeOrmModule.forFeature([Otp])],
-    providers: [OtpResolver, OtpService]
+    providers: [OtpResolver, OtpService],
+    exports: [
+        OtpService
+    ]
 })
 export class OtpModule { }

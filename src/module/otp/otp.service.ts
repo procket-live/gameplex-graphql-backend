@@ -43,7 +43,7 @@ export class OtpService {
                 deleted_at: null
             }
         });
-        console.log('otpObject', otpObject);
+
         const isExpired = this.isExpired(otpObject);
         if (otpObject && !isExpired) {
             await this.deleteOtp(otpObject.id);

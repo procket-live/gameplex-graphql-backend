@@ -3,13 +3,16 @@ import { GameService } from './game.service';
 import { GameResolver } from './game.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Game } from './game.entity';
-import { LookuptypeService } from '../lookuptype/lookuptype.service';
 import { GameMeta } from './gamemeta.entity';
-import { LookupType } from '../lookuptype/lookuptype.entity';
-import { LookupValue } from '../lookuptype/lookupvalue.entity';
+import { GameInstruction } from './gameinstruction.entity';
+import { LookuptypeModule } from '../lookuptype/lookuptype.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Game, GameMeta, LookupType, LookupValue])],
-    providers: [GameService, GameResolver, LookuptypeService]
+    imports: [
+        TypeOrmModule.forFeature([Game, GameMeta, GameInstruction]),
+        LookuptypeModule
+    ],
+    providers: [GameService, GameResolver],
+    exports: [GameService]
 })
 export class GameModule { }

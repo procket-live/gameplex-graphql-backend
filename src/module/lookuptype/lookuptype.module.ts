@@ -8,6 +8,7 @@ import { LookuptypeResolver } from './lookuptype.resolver';
 
 @Module({
     imports: [TypeOrmModule.forFeature([LookupType, LookupValue])],
-    providers: [LookuptypeService, LookuptypeResolver]
+    providers: [LookuptypeService, LookuptypeResolver],
+    exports: [LookuptypeService]
 })
 export class LookuptypeModule { }

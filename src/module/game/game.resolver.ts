@@ -1,6 +1,6 @@
 import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
 import { GameService } from './game.service';
-import { GameInput, GameMetaInput } from './game.input';
+import { GameInput, GameMetaInput, GameInstructionInput } from './game.input';
 import { Game } from './game.entity';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from '../auth/graphql-auth.guard';
@@ -31,5 +31,14 @@ export class GameResolver {
         @Args('id') id: string
     ) {
         return this.gameService.addGameMeta(id, input);
+    }
+
+    @Mutation()
+    @UseGuards(GqlAuthGuard)
+    async addGameInstruction(
+        @Args('input') input: GameInstructionInput,
+        @Args('id') id: string
+    ) {
+        return this.gameService.addGameInstruction(id, input);
     }
 }

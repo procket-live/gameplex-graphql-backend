@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+const AdminUser = require('nestjs-admin').AdminUserEntity;
 
 require('dotenv').config();
 
@@ -33,13 +34,13 @@ class ConfigService {
         return {
             type: 'postgres',
             // url: "",
-            host: this.getValue('POSTGRES_HOST'),
-            port: parseInt(this.getValue('POSTGRES_PORT')),
-            username: this.getValue('POSTGRES_USER'),
-            password: this.getValue('POSTGRES_PASSWORD'),
-            database: this.getValue('POSTGRES_DATABASE'),
+            host: "localhost",
+            port: 5432,
+            username: "postgres",
+            password: "gameplex",
+            database: "postgres",
 
-            entities: ['**/**.entity{.ts,.js}', '**/**/**.entity{.ts,.js}'],
+            entities: ['**/**/**.entity{.ts,.js}', AdminUser],
 
             // migrationsTableName: 'migration',
 

@@ -16,18 +16,30 @@ type User {
   wallet_bonous_balance: Int!
   wallet_win_balance: Int!
   bank_account: BankAccount
+  wallet: Wallet
+  game_username: [GameUserId!]
   created_at: String!
   updated_at: String!
   deleted_at: String
 }
 
-input BankAccountInput {
+type Wallet {
+  wallet_cash_balance: String!
+  wallet_bonous_balance: String!
+  wallet_win_balance: String!
+}
+
+type BankAccount {
   user_name: String!
   account_number: String!
   ifsc: String!
 }
 
-type BankAccount {
+type GameUserId {
+  game_username: String!
+}
+
+input BankAccountInput {
   user_name: String!
   account_number: String!
   ifsc: String!

@@ -1,6 +1,10 @@
-import { Entity, Column, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+
 import { BaseEntity } from '../../shared/base.entity';
 import { BankAccount } from '../bankaccount/bankaccount.entity';
+import { Wallet } from '../wallet/wallet.entity';
+import { GameUserId } from './gameuserid.entity';
+import { Organizer } from '../organizer/organizer.entity';
 
 enum Gender {
     MALE = "male",
@@ -84,25 +88,18 @@ export class User extends BaseEntity {
     })
     profile_image: string;
 
-    @Column({
-        type: "bigint",
-        default: 0
-    })
-    wallet_cash_balance: number;
-
-    @Column({
-        type: "bigint",
-        default: 0
-    })
-    wallet_bonous_balance: number;
-
-    @Column({
-        type: "bigint",
-        default: 0
-    })
-    wallet_win_balance: number;
-
     @OneToOne(() => BankAccount)
     @JoinColumn()
     bank_account: BankAccount;
+
+    @OneToOne(() => Wallet)
+    @JoinColumn()
+    wallet: Wallet;
+
+    @OneToMany(type => GameUserId, gameUserId => gameUserId.game)
+    game_username: GameUserId[];
+
+    @OneToOne(() => Organizer)
+    @JoinColumn()
+    organizer: Organizer;
 }

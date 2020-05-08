@@ -1,0 +1,49 @@
+type Application {
+  id: ID!
+  name: String!
+  description: String
+  package_id: String
+  updates: [AppRelease!]
+}
+
+type AppRelease {
+  id: ID!
+  name: String!
+  version: String!
+  app_link: String!
+  updates: [AppReleaseMessage]
+}
+
+type AppReleaseMessage {
+  id: ID!
+  message: String!
+}
+
+input ApplicationInput {
+  name: String!
+  description: String
+  package_id: String
+}
+
+input AppReleaseInput {
+  name: String!
+  version: String!
+  app_link: String!
+}
+
+input AppReleaseMessageInput {
+  message: String!
+}
+
+type Query {
+  getApp: [Application]
+}
+
+type Mutation {
+  createApp(input: ApplicationInput): Application
+  createAppRelease(input: AppReleaseInput, id: String!): AppRelease
+  createAppReleaseMessage(
+    input: AppReleaseMessageInput
+    id: String!
+  ): AppReleaseMessage
+}

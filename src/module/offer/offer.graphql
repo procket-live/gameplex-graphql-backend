@@ -1,0 +1,25 @@
+type Offer {
+  private: Boolean!
+  name: String
+  message: String
+  image: String
+  route: String
+  params: String
+}
+
+input OfferInput {
+  private: Boolean!
+  name: String
+  message: String
+  image: String
+  route: String
+  params: String
+}
+
+type Query {
+  offers: [Offer!]
+}
+
+type Mutation {
+  addOffer(input: OfferInput!): Offer
+}

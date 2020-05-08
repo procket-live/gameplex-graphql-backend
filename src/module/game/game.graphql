@@ -9,6 +9,7 @@ type Game {
   playstore_link: String
   game_target: String
   game_meta: [GameMeta!]
+  instructions: [GameInstruction!]
 }
 
 type GameMeta {
@@ -16,8 +17,22 @@ type GameMeta {
   lookup_type: LookupType
 }
 
+type GameInstruction {
+  name: String
+  message: String
+  note: String
+  image: String
+}
+
 input GameId {
   id: ID!
+}
+
+input GameInstructionInput {
+  name: String
+  message: String
+  note: String
+  image: String
 }
 
 input GameInput {
@@ -38,6 +53,7 @@ input GameMetaInput {
 type Mutation {
   createGame(input: GameInput): Game
   addGameMeta(input: GameMetaInput!, id: String!): GameMeta
+  addGameInstruction(input: GameInstructionInput!, id: String!): GameInstruction
 }
 
 type Query {
