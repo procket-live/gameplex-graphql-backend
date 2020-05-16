@@ -43,7 +43,7 @@ export class UserService {
     async findById(id: string, select: [keyof User] | null = null) {
         const user = await this.userRepository.findOne({
             where: { id: id },
-            relations: ["bank_account", "organizer"],
+            relations: ["bank_account", "organizer", "wallet", "game_username"],
             select
         })
         return user;

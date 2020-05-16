@@ -1,8 +1,8 @@
 import { Entity, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
 import { BaseEntity } from "../../shared/base.entity";
-import { Organizer } from "../user/organizer.entity";
 import { Game } from "../game/game.entity";
 import { Playground } from "../playground/playground.entity";
+import { Organizer } from "../organizer/organizer.entity";
 
 export enum TournamentStatus {
     PENDING = 'pending',

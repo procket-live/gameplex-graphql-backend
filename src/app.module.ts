@@ -17,10 +17,11 @@ import { TournamentModule } from './module/tournament/tournament.module';
 import { PlaygroundModule } from './module/playground/playground.module';
 import { ApplicationModule } from './module/application/application.module';
 import { ChatroomModule } from './module/chatroom/chatroom.module';
-import { OrderModule } from './order/order.module';
-import { OrganizerModule } from './organizer/organizer.module';
-import { PaymentModule } from './payment/payment.module';
-import { ParticipantModule } from './participant/participant.module';
+import { OrderModule } from './module/order/order.module';
+import { OrganizerModule } from './module/organizer/organizer.module';
+import { PaymentModule } from './module/payment/payment.module';
+import { ParticipantModule } from './module/participant/participant.module';
+import { RoleModule } from './module/role/role.module';
 
 const typeOrmConfig = configService.getTypeOrmConfig();
 
@@ -57,6 +58,7 @@ const typeOrmConfig = configService.getTypeOrmConfig();
         OrganizerModule,
         PaymentModule,
         ParticipantModule,
+        RoleModule,
     ],
     providers: []
 })

@@ -6,13 +6,21 @@ import { Game } from './game.entity';
 import { GameMeta } from './gamemeta.entity';
 import { GameInstruction } from './gameinstruction.entity';
 import { LookuptypeModule } from '../lookuptype/lookuptype.module';
+import { DefaultAdminModule, DefaultAdminSite } from 'nestjs-admin';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([Game, GameMeta, GameInstruction]),
-        LookuptypeModule
+        LookuptypeModule,
+        DefaultAdminModule
     ],
     providers: [GameService, GameResolver],
     exports: [GameService]
 })
-export class GameModule { }
+export class GameModule {
+    constructor(private readonly adminSite: DefaultAdminSite) {
+        this.adminSite.register('Game', Game)
+        this.adminSite.register('GameMeta', GameMeta)
+        this.adminSite.register('GameInstruction', GameInstruction)
+    }
+}

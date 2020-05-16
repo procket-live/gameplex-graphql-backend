@@ -6,6 +6,7 @@ import { Application } from './application.entity';
 import { AppReleaseMessage } from './appreleasemessage.entity';
 import { AppRelease } from './apprelease.entity';
 import { DefaultAdminModule, DefaultAdminSite } from 'nestjs-admin';
+import { ApplicationAdmin, AppReleaseAdmin, AppReleaseMessageAdmin } from './application.admin';
 
 @Module({
     imports: [
@@ -17,8 +18,8 @@ import { DefaultAdminModule, DefaultAdminSite } from 'nestjs-admin';
 })
 export class ApplicationModule {
     constructor(private readonly adminSite: DefaultAdminSite) {
-        this.adminSite.register('Application', Application)
-        this.adminSite.register('AppRelease', AppRelease)
-        this.adminSite.register('AppReleaseMessage', Application)
+        this.adminSite.register('Application', ApplicationAdmin)
+        this.adminSite.register('AppRelease', AppReleaseAdmin)
+        this.adminSite.register('AppReleaseMessage', AppReleaseMessageAdmin)
     }
 }

@@ -1,5 +1,6 @@
 export class TournamentInput {
     status?: string;
+    game_id?: string;
     tournament_type?: string;
     name?: string;
     description?: string;

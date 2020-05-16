@@ -6,6 +6,7 @@ import { ChatRoom } from './chatroom.entity';
 import { ChatMessage } from './chatmessage.entity';
 import { UserModule } from '../user/user.module';
 import { ChatRoomParticipent } from './chatroomparticipent.entity';
+import { DefaultAdminSite, DefaultAdminModule } from 'nestjs-admin';
 
 @Module({
     imports: [
@@ -14,9 +15,14 @@ import { ChatRoomParticipent } from './chatroomparticipent.entity';
             ChatMessage,
             ChatRoomParticipent
         ]),
-        UserModule
+        UserModule,
+        DefaultAdminModule
     ],
     providers: [ChatroomService, ChatroomResolver],
     exports: [ChatroomService]
 })
-export class ChatroomModule { }
+export class ChatroomModule {
+    constructor(private readonly adminSite: DefaultAdminSite) {
+        this.adminSite.register('ChatRoom', ChatRoom);
+    }
+}

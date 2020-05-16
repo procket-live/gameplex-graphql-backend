@@ -58,11 +58,14 @@ export class AuthService {
             return null;
         }
 
-        const user = await this.validateUserByMobile(mobile);
+        let user = await this.validateUserByMobile(mobile);
 
         if (!user) {
             return null
         }
+
+        this.userService.updateMobileVerificationState(user.id, true);
+        user = await this.userService.findById(user.id);
 
         const payload = this.generatePayload(user);
         const accessToken = this.jwtService.sign(payload);

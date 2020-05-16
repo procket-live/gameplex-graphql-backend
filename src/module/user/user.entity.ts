@@ -24,6 +24,9 @@ export class User extends BaseEntity {
     username: string;
 
     @Column({ type: "text", nullable: true })
+    name: string;
+
+    @Column({ type: "text", nullable: true })
     password: string;
 
     @Column({

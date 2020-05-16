@@ -1,0 +1,7 @@
+type Organizer {
+  organizer_name: String!
+  organizer_logo: String
+  upi_address: String
+  bank_account: BankAccount
+  verified: Boolean!
+}

@@ -1,4 +1,4 @@
-import { Entity, Column, OneToOne } from "typeorm";
+import { Entity, Column } from "typeorm";
 import { BaseEntity } from "../../shared/base.entity";
 
 enum WalletTarget {
@@ -7,7 +7,7 @@ enum WalletTarget {
     WIN_BALANCE = 'win_balance'
 }
 
-@Entity()
+@Entity("WalletTransaction")
 export class WalletTransaction extends BaseEntity {
     @Column({
         type: "enum",

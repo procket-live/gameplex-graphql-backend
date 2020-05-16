@@ -17,6 +17,7 @@ import { BankaccountModule } from '../bankaccount/bankaccount.module';
 import { WalletModule } from '../wallet/wallet.module';
 import { OtpModule } from '../otp/otp.module';
 import { OrganizerModule } from '../organizer/organizer.module';
+import { UserAdmin } from './user.admin';
 
 @Module({
     imports: [
@@ -40,6 +41,6 @@ import { OrganizerModule } from '../organizer/organizer.module';
 })
 export class UserModule {
     constructor(private readonly adminSite: DefaultAdminSite) {
-        this.adminSite.register('User', User)
+        this.adminSite.register('User', UserAdmin)
     }
 }

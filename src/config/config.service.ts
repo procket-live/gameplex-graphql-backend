@@ -33,22 +33,12 @@ class ConfigService {
     public getTypeOrmConfig(): TypeOrmModuleOptions {
         return {
             type: 'postgres',
-            // url: "",
             host: "localhost",
             port: 5432,
             username: "postgres",
             password: "gameplex",
             database: "postgres",
-
-            entities: ['**/**/**.entity{.ts,.js}', AdminUser],
-
-            // migrationsTableName: 'migration',
-
-            // migrations: ['src/migration/*.ts'],
-
-            // cli: {
-            //     migrationsDir: 'src/migration',
-            // },
+            entities: ['module/**/**.entity{.ts}', AdminUser],
             autoLoadEntities: true,
             synchronize: true,
             logging: true,

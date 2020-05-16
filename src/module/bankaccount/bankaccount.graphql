@@ -1,0 +1,5 @@
+type BankAccount {
+  account_number: String!
+  user_name: String!
+  ifsc: String!
+}

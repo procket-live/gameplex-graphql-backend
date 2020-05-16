@@ -20,6 +20,15 @@ export class AuthResolver {
     }
 
     @Mutation()
+    logout(
+        @Res() ctx
+    ) {
+        const res = ctx[0].res as Response;
+        res.cookie('token', null, { httpOnly: true });
+        return true
+    }
+
+    @Mutation()
     async verifyOtp(
         @Args('input') input: OTPInput,
         @Res() ctx,

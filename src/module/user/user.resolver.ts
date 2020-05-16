@@ -13,11 +13,6 @@ export class UserResolver {
     ) { }
 
     @Query(() => User)
-    async users() {
-        return []
-    }
-
-    @Query(() => User)
     @UseGuards(GqlAuthGuard)
     async me(@CurrentUser() user: User) {
         return this.userService.findById(user.id);
@@ -32,5 +27,14 @@ export class UserResolver {
         await this.userService.addBankAccount(user.id, input);
         const updatedUser = await this.userService.findById(user.id);
         return updatedUser;
+    }
+
+    @Mutation()
+    @UseGuards(GqlAuthGuard)
+    setFirebaseToken(
+        @Args('firebase_token') firebaseToken: string,
+        @CurrentUser() user: User
+    ) {
+        return this.userService.updateUser({ firebase_token: firebaseToken }, user.id);
     }
 }

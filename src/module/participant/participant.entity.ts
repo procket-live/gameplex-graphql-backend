@@ -9,7 +9,7 @@ export class Participant extends BaseEntity {
     @JoinColumn()
     user: User;
 
-    @OneToOne(() => WalletTransaction)
-    @JoinColumn()
-    wallet_transaction: WalletTransaction;
+    // @OneToOne(() => WalletTransaction)
+    // @JoinColumn()
+    // wallet_transaction: WalletTransaction;
 }

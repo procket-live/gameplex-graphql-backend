@@ -4,10 +4,15 @@ import { OrganizerResolver } from './organizer.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Organizer } from './organizer.entity';
 import { UserModule } from '../user/user.module';
+import { DefaultAdminModule, DefaultAdminSite } from 'nestjs-admin';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Organizer])],
+    imports: [TypeOrmModule.forFeature([Organizer]), DefaultAdminModule],
     providers: [OrganizerService, OrganizerResolver],
     exports: [OrganizerService]
 })
-export class OrganizerModule { }
+export class OrganizerModule {
+    constructor(private readonly adminSite: DefaultAdminSite) {
+        this.adminSite.register('Organizer', Organizer)
+    }
+}

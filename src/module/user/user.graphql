@@ -1,13 +1,13 @@
 type User {
   id: String!
   username: String!
-  password: String!
+  name: String
   mobile: String
-  email: String!
+  email: String
   is_mobile_verified: Boolean!
   is_email_verified: Boolean!
   gender: String!
-  dob: String!
+  dob: String
   points: Int!
   firebase_token: String
   account_source: String!
@@ -53,4 +53,5 @@ type Query {
 
 type Mutation {
   updateBankDetails(input: BankAccountInput): User
+  setFirebaseToken(firebaseToken: String!): User!
 }

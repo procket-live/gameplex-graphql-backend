@@ -25,6 +25,7 @@ export class GameService {
         game.name = input.name;
         game.description = input.description;
         game.thumbnail = input.thumbnail;
+        game.wallpaper = input.wallpaper;
         game.game_target = input.game_target;
         game.package_id = input.package_id;
         game.playstore_link = input.playstore_link;

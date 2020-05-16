@@ -1,0 +1,19 @@
+type Playground {
+  id: ID!
+  game: Game!
+  tournaments: [Tournament!]
+}
+
+input PlaygroundInput {
+  game_id: String!
+}
+
+type Query {
+  getPlayground: [Playground]
+  getPlaygroundDetail(playground_id: String!): Playground
+}
+
+type Mutation {
+  createPlayground(input: PlaygroundInput): Playground
+  addTournament(tournament_id: String!, playground_id: String!): Playground
+}

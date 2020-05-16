@@ -10,6 +10,7 @@ export class OTPInput {
 
 export class UserInput {
     username?: string;
+    name?: string;
     email?: string;
     dob?: string;
     firebase_token?: string;

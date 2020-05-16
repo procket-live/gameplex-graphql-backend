@@ -20,4 +20,5 @@ type Mutation {
   generateOtp(input: GenerateOtpInput!): Otp!
   verifyOtp(input: VerifyOtpInput): UserWithToken
   resendOtp(input: IdInput): Otp
+  logout: Boolean
 }

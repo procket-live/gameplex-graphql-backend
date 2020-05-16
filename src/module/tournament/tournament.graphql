@@ -1,0 +1,38 @@
+type Tournament {
+  id: ID!
+  status: String!
+  tournament_type: String!
+  organizer: Organizer!
+  game: Game!
+  name: String!
+  description: String
+  private: Boolean!
+  logo_link: String
+  min_size: String!
+  max_size: String!
+  registration_start: String!
+  registration_end: String!
+  tournament_start: String
+  tournament_end: String
+  tournament_instruction: String
+}
+
+input TournamentInput {
+  name: String!
+  game_id: String!
+  private: Boolean
+  registration_start: String!
+  registration_end: String!
+  status: String
+  tournament_start: String
+  tournament_end: String
+  logo_link: String
+}
+
+type Query {
+  getTournament(id: String!): Tournament
+}
+
+type Mutation {
+  createTournament(input: TournamentInput): Tournament
+}

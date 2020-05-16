@@ -12,7 +12,6 @@ export class OfferResolver {
     ) { }
 
     @Query(() => [Offer])
-    @UseGuards(GqlAuthGuard)
     async offers() {
         return this.offerService.getPublicOffer();
     }
