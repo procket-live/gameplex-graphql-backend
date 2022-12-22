@@ -44,7 +44,7 @@
         "graphql": "^15.0.0",
         "graphql-tools": "^5.0.0",
         "helmet": "^3.22.0",
-        "jsonwebtoken": "^8.5.1",
+        "jsonwebtoken": "^9.0.0",
         "moment": "^2.24.0",
         "mongodb": "^3.5.6",
         "nestjs-admin": "0.3.0",
